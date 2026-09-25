@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 分鐘快速上手！中二病 Discord 伺服器新手加入指南</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        discord: {
+                            blurple: '#5865F2',
+                            green: '#57F287',
+                            yellow: '#FEE75C',
+                            fuchsia: '#EB459E',
+                            red: '#ED4245',
+                            // Discord 官方原生深色系色彩
+                            appBg: '#313338',
+                            sidebarBg: '#2b2d31',
+                            serverListBg: '#1e1f22',
+                            embedBg: '#2b2d31',
+                            darkBg: '#0f1117',
+                            cardBg: '#181b26'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-blurple {
+            box-shadow: 0 0 35px -5px rgba(88, 101, 242, 0.5);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 30px 2px rgba(88, 101, 242, 0.7);
+        }
+        .discord-channel-tag {
+            background-color: rgba(88, 101, 242, 0.15);
+            color: #c9cdfb;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-flex;
+            items-center: center;
+            gap: 2px;
+        }
+    </style>
+</head>
+<body class="bg-discord-darkBg text-slate-100 font-sans antialiased selection:bg-discord-blurple selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- 頂部導覽列 -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-discord-darkBg/90 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-discord-blurple flex items-center justify-center text-white text-xl font-black shadow-lg">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
+                <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+                    中二病也要來一發！
+                </span>
+            </div>
+            
+            <a href="https://discord.gg/chuuni" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 bg-discord-blurple hover:bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+                <span>加入伺服器</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero 英雄主視覺區塊 -->
+    <section class="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-discord-blurple/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-discord-blurple/10 border border-discord-blurple/30 text-indigo-300 text-xs md:text-sm font-semibold mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-discord-green animate-ping"></span>
+                完全沒接觸過？3 分鐘極速新手開通指南
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6">
+                歡迎來到 <br>
+                <span class="bg-gradient-to-r from-discord-blurple via-indigo-300 to-fuchsia-400 bg-clip-text text-transparent">
+                    「中二病也要來一發！」
+                </span>
+            </h1>
+
+            <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+                跟著以下超簡單步驟，只需在頻道留言說明來意（例如常玩的遊戲名稱），管理員就會為您開通伺服器權限喔！
+            </p>
+
+            <!-- 主要按鈕區 -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                <a href="https://discord.gg/chuuni" target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-3 bg-discord-blurple hover:bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl glow-blurple glow-hover transition-all duration-300 hover:-translate-y-0.5">
+                    <i class="fa-brands fa-discord text-2xl"></i>
+                    <span>點我一鍵加入</span>
+                </a>
+
+                <button onclick="copyInviteLink()" 
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 px-6 py-4 rounded-2xl font-bold transition-all duration-200 active:scale-95">
+                    <i class="fa-regular fa-copy text-lg" id="copyIcon"></i>
+                    <span id="copyBtnText">複製邀請網址</span>
+                </button>
+            </div>
+
+            <div class="mt-4 text-xs text-slate-400 flex items-center justify-center gap-1.5">
+                <span>伺服器邀請網址：</span>
+                <code class="bg-slate-900 border border-slate-800 text-indigo-300 px-2.5 py-0.5 rounded font-mono font-bold">https://discord.gg/chuuni</code>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-4xl mx-auto px-4 pb-20">
+        
+        <!-- 裝置切換器 -->
+        <div class="mb-10 bg-slate-900 p-1.5 rounded-2xl border border-slate-800 flex items-center justify-center max-w-sm mx-auto shadow-inner">
+            <button id="btnMobile" onclick="switchDevice('mobile')" 
+                    class="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 bg-discord-blurple text-white shadow-md">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <span>手機版 App</span>
+            </button>
+            <button id="btnPC" onclick="switchDevice('pc')" 
+                    class="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-desktop"></i>
+                <span>電腦版 / 網頁版</span>
+            </button>
+        </div>
+
+        <div class="space-y-10">
+
+            <!-- 步驟 1 -->
+            <div class="bg-discord-cardBg rounded-3xl p-6 md:p-8 border border-slate-800 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-discord-blurple/20 border border-discord-blurple/50 text-discord-blurple flex items-center justify-center font-black text-lg md:text-xl">
+                        01
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold mb-2 text-white">
+                            點擊連結加入 Discord
+                        </h2>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-4">
+                            按下網頁頂部的按鈕，或是直接點擊邀請網址 <a href="https://discord.gg/chuuni" target="_blank" class="text-indigo-400 underline font-semibold">https://discord.gg/chuuni</a>。
+                        </p>
+
+                        <!-- 手機版提示 -->
+                        <div id="deviceNoticeMobile" class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800">
+                            <div class="font-bold text-indigo-300 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-mobile-screen-button"></i> 手機端建議方式：
+                            </div>
+                            <ol class="list-decimal list-inside text-xs md:text-sm text-slate-300 space-y-1">
+                                <li>先至商店下載 <strong class="text-white">「Discord」</strong> 應用程式並完成註冊登入。</li>
+                                <li>點擊邀請連結後，手機會自動開啟 Discord 並顯示加入卡片，點選「接受邀請」即可。</li>
+                            </ol>
+                        </div>
+
+                        <!-- 電腦版提示 -->
+                        <div id="deviceNoticePC" class="hidden bg-slate-900/80 rounded-2xl p-4 border border-slate-800">
+                            <div class="font-bold text-indigo-300 text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-desktop"></i> 電腦端建議方式：
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-300">
+                                點選網址後，可選擇直接用 <strong class="text-white">「網頁瀏覽器開啟」</strong>（免下載軟體），或者開啟已安裝好的 Discord 電腦應用程式。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 步驟 2：機器人提醒 -->
+            <div class="bg-discord-cardBg rounded-3xl p-6 md:p-8 border border-slate-800 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-discord-blurple/20 border border-discord-blurple/50 text-discord-blurple flex items-center justify-center font-black text-lg md:text-xl">
+                        02
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <h2 class="text-xl md:text-2xl font-bold text-white">進群後檢視機器人指引</h2>
+                            <span class="bg-discord-blurple/20 text-indigo-300 text-xs px-2.5 py-0.5 rounded-full border border-discord-blurple/30 font-bold">機器人自動提醒</span>
+                        </div>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-5">
+                            進入伺服器後，機器人 <strong class="text-indigo-400">Koya</strong> 會自動彈出歡迎訊息，並告訴你簡單的 2 個審核步驟：
+                        </p>
+
+                        <!-- 擬真 Discord 嵌入訊息 UI (模擬圖1) -->
+                        <div class="bg-discord-appBg rounded-2xl p-4 md:p-5 border border-slate-700/60 font-sans shadow-2xl overflow-hidden">
+                            <!-- 歡迎文字標頭 -->
+                            <div class="flex items-center gap-2 text-xs md:text-sm text-slate-300 mb-3 pb-2 border-b border-slate-700/50">
+                                <i class="fa-solid fa-arrow-right text-discord-green"></i>
+                                <span>歡迎 <strong class="text-white underline decoration-discord-green">新手小夥伴</strong>。打聲招呼吧！</span>
+                                <span class="text-slate-500 text-[10px] ml-auto">今天 下午 08:35</span>
+                            </div>
+
+                            <!-- Bot 發言區 -->
+                            <div class="flex items-start gap-3">
+                                <!-- Bot 頭像 -->
+                                <img src="https://placehold.co/80x80/2b2d31/e2e8f0?text=Koya" alt="Koya Bot" class="w-10 h-10 rounded-full flex-shrink-0">
+                                
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-white text-sm">Koya</span>
+                                        <span class="bg-discord-blurple text-white text-[10px] font-bold px-1.5 py-0.2 rounded flex items-center gap-0.5">
+                                            <i class="fa-solid fa-check text-[8px]"></i> 應用
+                                        </span>
+                                        <span class="text-slate-500 text-[11px]">今天 下午 08:35</span>
+                                    </div>
+
+                                    <!-- Embed 卡片 -->
+                                    <div class="mt-2 bg-discord-embedBg rounded-lg p-4 border-l-4 border-discord-yellow max-w-xl">
+                                        <p class="font-bold text-slate-100 text-sm md:text-base mb-3">
+                                            ⭐哈囉 <span class="bg-discord-blurple/30 text-indigo-200 px-1 rounded">@新手小夥伴</span>，歡迎來到 中二病也要來一發！ ⭐
+                                        </p>
+
+                                        <p class="text-xs md:text-sm text-slate-300 mb-2 font-medium">
+                                            想要加入我們的小夥伴，請先完成以下步驟喔：
+                                        </p>
+
+                                        <div class="space-y-2 text-xs md:text-sm text-slate-200 font-normal">
+                                            <div class="flex items-start gap-2 bg-slate-800/50 p-2 rounded border border-slate-700/50">
+                                                <span class="bg-discord-blurple text-white text-xs font-bold w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                                                <div>
+                                                    請先至 <span class="discord-channel-tag"><i class="fa-solid fa-crown text-amber-400 text-xs"></i> 群組規定│grouprules</span> 閱讀伺服器規範。
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-2 bg-slate-800/50 p-2 rounded border border-slate-700/50">
+                                                <span class="bg-discord-blurple text-white text-xs font-bold w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                                                <div>
+                                                    接著前往 <span class="discord-channel-tag"><i class="fa-solid fa-egg text-amber-300 text-xs"></i> 審核請打字等待🐣</span> 說明一下來意。
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-xs text-slate-400 mt-3 pt-2 border-t border-slate-700/40">
+                                            管理員看到後就會給予對應的身分組，請耐心等待一下嘀！
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 步驟 3：前往審核頻道輸入遊戲名稱 -->
+            <div class="bg-discord-cardBg rounded-3xl p-6 md:p-8 border border-slate-800 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-discord-blurple/20 border border-discord-blurple/50 text-discord-blurple flex items-center justify-center font-black text-lg md:text-xl">
+                        03
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <h2 class="text-xl md:text-2xl font-bold text-white">至審核頻道打字說明來意</h2>
+                            <span class="bg-discord-green/20 text-discord-green text-xs px-2.5 py-0.5 rounded-full border border-discord-green/30 font-bold">最重要步驟</span>
+                        </div>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-4">
+                            前往頻道 <span class="discord-channel-tag"><i class="fa-solid fa-egg text-amber-300 text-xs"></i> 審核請打字等待🐣</span>，留下你經常玩的遊戲名稱或來意即可！
+                        </p>
+
+                        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 mb-5 flex items-start gap-3">
+                            <i class="fa-solid fa-lightbulb text-amber-400 text-lg mt-0.5"></i>
+                            <div class="text-xs md:text-sm text-amber-200/90 leading-relaxed">
+                                <strong class="text-amber-300 font-bold">打字範例：</strong> 
+                                您只需要簡單輸入像 <span class="bg-amber-500/20 text-white font-mono px-1.5 py-0.5 rounded">魔物獵人</span>、<span class="bg-amber-500/20 text-white font-mono px-1.5 py-0.5 rounded">魔物獵人 剛進入冰原</span>、<span class="bg-amber-500/20 text-white font-mono px-1.5 py-0.5 rounded">L4D2</span> 等遊戲名稱，管理員就會盡快為您開通！
+                            </div>
+                        </div>
+
+                        <!-- 擬真 Discord 頻道對話對答 (模擬圖2) -->
+                        <div class="bg-discord-appBg rounded-2xl p-4 md:p-5 border border-slate-700/60 font-sans shadow-2xl space-y-4">
+                            <div class="text-xs text-slate-400 font-bold border-b border-slate-700/50 pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-hashtag text-slate-500"></i>
+                                <span>頻道發言示範區 (審核請打字等待)</span>
+                            </div>
+
+                            <!-- 留言對話列表 -->
+                            <div class="space-y-3.5">
+                                <!-- 留言 1 -->
+                                <div class="flex items-start gap-3 group">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                        油
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-rose-300 text-sm">油膩鮎體</span>
+                                            <span class="text-slate-500 text-[10px]">下午 11:21</span>
+                                        </div>
+                                        <p class="text-slate-200 text-sm mt-0.5">魔物獵人 剛進入冰原</p>
+                                    </div>
+                                </div>
+
+                                <!-- 留言 2 -->
+                                <div class="flex items-start gap-3 group">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                        吉
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-red-400 text-sm">吉米</span>
+                                            <span class="text-slate-500 text-[10px]">下午 08:58</span>
+                                        </div>
+                                        <p class="text-slate-200 text-sm mt-0.5">魔物獵人世界</p>
+                                    </div>
+                                </div>
+
+                                <!-- 留言 3 -->
+                                <div class="flex items-start gap-3 group">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                        X
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-red-400 text-sm">Xiang</span>
+                                            <span class="text-slate-500 text-[10px]">上午 01:45</span>
+                                        </div>
+                                        <p class="text-slate-200 text-sm mt-0.5">魔物獵人</p>
+                                    </div>
+                                </div>
+
+                                <!-- 留言 4 -->
+                                <div class="flex items-start gap-3 group">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-600 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                        上
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-red-400 text-sm">上2下Shit</span>
+                                            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-1.5 py-0.2 rounded">PEAK</span>
+                                            <span class="text-slate-500 text-[10px]">下午 10:44</span>
+                                        </div>
+                                        <p class="text-slate-200 text-sm mt-0.5">L4D2</p>
+                                    </div>
+                                </div>
+
+                                <!-- 留言 5 -->
+                                <div class="flex items-start gap-3 group">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                        JJ
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-emerald-400 text-sm">JJ9</span>
+                                            <span class="text-slate-500 text-[10px]">上午 03:14</span>
+                                        </div>
+                                        <p class="text-slate-200 text-sm mt-0.5">l4d2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 步驟 4：獲得身分組與通關 -->
+            <div class="bg-discord-cardBg rounded-3xl p-6 md:p-8 border border-slate-800 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-discord-blurple/20 border border-discord-blurple/50 text-discord-blurple flex items-center justify-center font-black text-lg md:text-xl">
+                        04
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-xl md:text-2xl font-bold mb-2 text-white">
+                            等待管理員授權，開啟全伺服器頻道
+                        </h2>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                            管理員看到您的訊息後會盡快給予身分組。完成審核後，左側就會解鎖所有語音房與遊戲討論頻道，即可開開心心跟夥伴們組隊聊天囉！
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 常見新手疑問 (FAQ) -->
+        <section class="mt-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-black text-white mb-2">新手常見問題 FAQ</h2>
+                <p class="text-slate-400 text-sm">遇到問題別擔心，這裡為你解答</p>
+            </div>
+
+            <div class="space-y-3 max-w-3xl mx-auto">
+                <div class="bg-discord-cardBg rounded-2xl border border-slate-800 overflow-hidden">
+                    <button onclick="toggleFaq('faq1')" class="w-full p-4 text-left font-bold text-white flex justify-between items-center hover:bg-slate-800/50 transition">
+                        <span>Q1: 打字後要等多久才會開通？</span>
+                        <i id="faq1-icon" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq1" class="hidden px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-3">
+                        管理員收到訊息後會盡快手動給予身分組，一般在看到訊息的當下就會給予，請耐心稍微等候一下喔！
+                    </div>
+                </div>
+
+                <div class="bg-discord-cardBg rounded-2xl border border-slate-800 overflow-hidden">
+                    <button onclick="toggleFaq('faq2')" class="w-full p-4 text-left font-bold text-white flex justify-between items-center hover:bg-slate-800/50 transition">
+                        <span>Q2: 不知道要輸入什麼遊戲名稱怎麼辦？</span>
+                        <i id="faq2-icon" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq2" class="hidden px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-3">
+                        隨便打你平時會玩的遊戲即可（例如：LOL、Apex、Valorant、魔物獵人、星鐵、Steam 遊戲等），甚至留言「路過交朋友」也可以！
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部號召加入區塊 -->
+        <div class="mt-16 bg-gradient-to-r from-discord-blurple via-indigo-600 to-purple-700 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-black mb-3">準備好了嗎？點擊加入我們！</h2>
+                <p class="text-indigo-100 text-sm md:text-base mb-6">
+                    「中二病也要來一發！」熱烈歡迎新小夥伴加入聊天玩遊戲～
+                </p>
+                <a href="https://discord.gg/chuuni" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-discord-blurple font-black text-lg px-8 py-4 rounded-2xl shadow-lg transition-all duration-200 hover:scale-105 active:scale-95">
+                    <i class="fa-brands fa-discord text-2xl"></i>
+                    <span>立即加入 Discord 伺服器</span>
+                </a>
+            </div>
+            <div class="absolute -right-10 -bottom-10 text-white/10 text-9xl font-black pointer-events-none select-none">
+                <i class="fa-brands fa-discord"></i>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast 複製成功提示 -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 border border-slate-700 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none">
+        <div class="w-7 h-7 rounded-full bg-discord-green/20 text-discord-green flex items-center justify-center text-sm">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <span class="text-sm font-bold">邀請連結已複製！</span>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 space-y-1">
+            <p>中二病也要來一發！ Discord 伺服器 新手加入引導頁</p>
+            <p>https://discord.gg/chuuni</p>
+        </div>
+    </footer>
+
+    <script>
+        // 切換裝置 (手機 vs 電腦)
+        function switchDevice(device) {
+            const btnMobile = document.getElementById('btnMobile');
+            const btnPC = document.getElementById('btnPC');
+            const noticeMobile = document.getElementById('deviceNoticeMobile');
+            const noticePC = document.getElementById('deviceNoticePC');
+
+            if (device === 'mobile') {
+                btnMobile.className = "flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 bg-discord-blurple text-white shadow-md";
+                btnPC.className = "flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 text-slate-400 hover:text-white";
+                noticeMobile.classList.remove('hidden');
+                noticePC.classList.add('hidden');
+            } else {
+                btnPC.className = "flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 bg-discord-blurple text-white shadow-md";
+                btnMobile.className = "flex-1 py-2.5 px-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 text-slate-400 hover:text-white";
+                noticePC.classList.remove('hidden');
+                noticeMobile.classList.add('hidden');
+            }
+        }
+
+        // 複製邀請連結
+        function copyInviteLink() {
+            const inviteUrl = "https://discord.gg/chuuni";
+            
+            const tempInput = document.createElement("input");
+            tempInput.value = inviteUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const copyBtnText = document.getElementById('copyBtnText');
+            const copyIcon = document.getElementById('copyIcon');
+            const toast = document.getElementById('toast');
+
+            copyBtnText.textContent = "已複製網址！";
+            copyIcon.className = "fa-solid fa-check text-discord-green";
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                copyBtnText.textContent = "複製邀請網址";
+                copyIcon.className = "fa-regular fa-copy text-lg";
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // FAQ 摺疊
+        function toggleFaq(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
